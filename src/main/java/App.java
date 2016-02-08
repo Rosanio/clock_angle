@@ -7,7 +7,26 @@ import static spark.Spark.*;
 
 public class App {
   public static void main(String[] args) {
-    System.out.println(findAngle("11","45"));
+    staticFileLocation("/public");
+    String layout = "templates/layout.vtl";
+
+    get("/", (request, response) -> {
+      HashMap model = new HashMap();
+
+      model.put("template", "templates/form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/angle", (request, response) -> {
+      HashMap model = new HashMap();
+      String hour = request.queryParams("hour");
+      String minute = request.queryParams("minute");
+      String angleAnswer = findAngle(hour, minute);
+
+      model.put("angleAnswer", angleAnswer);
+      model.put("template", "templates/angle.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 
   public static String findAngle(String hourHand, String minuteHand) {
