@@ -49,7 +49,7 @@ public class App {
     } else {
       numberMinuteHand = Double.parseDouble(minuteHand);
     }
-    
+
     Double hourFraction = numberHourHand / 12;
     Double minuteFraction = numberMinuteHand / 60;
 
@@ -62,6 +62,9 @@ public class App {
     }
     Double roundedAngle = Math.floor(angle+0.5);
     String stringAngle = Double.toString(roundedAngle);
+    if(numberHourHand > 12 || numberHourHand < 0 || numberMinuteHand > 60 || numberMinuteHand < 0) {
+      stringAngle = "nonexistent";
+    }
     return stringAngle;
   }
 }
