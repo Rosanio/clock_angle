@@ -1,12 +1,21 @@
-<h1>Fill in the time and we'll tell you the angle between the hour and minute hands!</h1>
-<form action='/angle'>
-  <div class="form-group">
-    <label for="hour">Hour hand</label>
-    <input id="hour" name="hour" class="form-control" type="number">
+<h1 class="jumbotron">Clock Angle<h1>
+<hr>
+<h2>Fill in the time and we'll tell you the angle between the hour and minute hands!</h2>
+<br>
+<div class='row'>
+  <div class='col-md-4'>
   </div>
-  <div class="form-group">
-    <label for="minute">Minute hand</label>
-    <input id="minute" name="minute" class="form-control" type="text">
+  <div class='col-md-4'>
+    <form action='/angle'>
+      <div class="form-group">
+        <label for="hour">Hour hand</label>
+        <input id="hour" name="hour" class="form-control" type="number" placeholder = "hour">
+      </div>
+      <div class="form-group">
+        <label for="minute">Minute hand</label>
+        <input id="minute" name="minute" class="form-control" type="number" placeholder = "minute">
+      </div>
+      <button type="submit" class="btn">Go!</button>
+    </form>
   </div>
-  <button type="submit" class="btn">Go!</button>
-</form>
+</div>

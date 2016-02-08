@@ -49,7 +49,7 @@ public class App {
     } else {
       numberMinuteHand = Double.parseDouble(minuteHand);
     }
-
+    
     Double hourFraction = numberHourHand / 12;
     Double minuteFraction = numberMinuteHand / 60;
 
