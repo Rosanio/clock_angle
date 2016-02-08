@@ -16,4 +16,10 @@ public class AppTest {
     App clockAngle = new App();
     assertEquals("90.0", App.findAngle("12","15"));
   }
+
+  @Test
+  public void findAngle_is90IfHandsFace12And9_90() {
+    App clockAngle = new App();
+    assertEquals("90.0", App.findAngle("12","45"));
+  }
 }

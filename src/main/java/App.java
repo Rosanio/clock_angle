@@ -7,14 +7,19 @@ import static spark.Spark.*;
 
 public class App {
   public static void main(String[] args) {
-    System.out.println(findAngle("12","60"));
+    System.out.println(findAngle("11","45"));
   }
 
   public static String findAngle(String hourHand, String minuteHand) {
+    Double tempMinuteHand = Double.parseDouble(minuteHand);
     Double numberHourHand;
     if(hourHand == "12") {
-      String zeroHourHand = "0";
-      numberHourHand = Double.parseDouble(zeroHourHand);
+      if(minuteHand == "60" || (tempMinuteHand >= 1.0 && tempMinuteHand <= 30.0)) {
+        String zeroHourHand = "0";
+        numberHourHand = Double.parseDouble(zeroHourHand);
+      } else {
+        numberHourHand = Double.parseDouble(hourHand);
+      }
     } else {
       numberHourHand = Double.parseDouble(hourHand);
     }
@@ -33,7 +38,11 @@ public class App {
     if (angle < 0){
       angle = angle * -1;
     }
-    String stringAngle = Double.toString(angle);
+    if(angle > 180) {
+      angle = 360.0 - angle;
+    }
+    Double roundedAngle = Math.floor(angle+0.5);
+    String stringAngle = Double.toString(roundedAngle);
     return stringAngle;
   }
 }
