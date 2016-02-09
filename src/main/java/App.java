@@ -22,7 +22,12 @@ public class App {
       String hour = request.queryParams("hour");
       String minute = request.queryParams("minute");
       String angleAnswer = findAngle(hour, minute);
+      if(minute.length() < 2) {
+        minute = "0" + minute;
+      }
 
+      model.put("hour", hour);
+      model.put("minute", minute);
       model.put("angleAnswer", angleAnswer);
       model.put("template", "templates/angle.vtl");
       return new ModelAndView(model, layout);

@@ -1,3 +1,7 @@
 <h1 class="jumbotron"><a href="/">Clock Angle</a><h1>
 <hr>
-<h2>The angle between the two hands is: $angleAnswer</h2>
+#if($angleAnswer == "nonexistent")
+<h2>At $hour:$minute, the angle between the two hands will be: $angleAnswer</h2>
+#else
+<h2>At $hour:$minute, the angle between the two hands will be: $angleAnswer&deg;</h2>
+#end
